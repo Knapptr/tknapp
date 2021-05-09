@@ -52,7 +52,7 @@ const renderTwoMostRecent = (posts: IPostData[]) => {
   return posts.map(post => (
     <li
       key={post.node.frontmatter.title}
-      tw="flex-1 flex flex-col hover:shadow-2xl filter brightness-95 hover:(brightness-100) transition-all duration-300 cursor-pointer"
+      tw="flex-1 hover:shadow-2xl filter brightness-95 hover:(brightness-100) transition-all duration-300 cursor-pointer"
     >
       <Link to={post.node.fields.slug}>
         <PostShort
@@ -72,7 +72,7 @@ const renderTwoMostRecent = (posts: IPostData[]) => {
 const IndexPage = ({ data }: PageProps<IPageQueryData>) => {
   return (
     <Layout>
-      <Container tw="py-12 font-tmono ">
+      <Container tw="py-12 font-tmono bg-secondary-fill ">
         <ContentBounds tw="gap-4">
           <Header tw="text-5xl md:text-7xl mb-12 text-center md:text-left">
             <WavingHand>👋</WavingHand>Hello!
@@ -97,7 +97,7 @@ const IndexPage = ({ data }: PageProps<IPageQueryData>) => {
         </ContentBounds>
       </Container>
       {/* The recent posts div gets a slightly larger max width */}
-      <section tw="mt-12 max-w-6xl mx-auto  px-5 rounded-lg bg-tertiary-fill py-4">
+      <section tw="mt-12 max-w-6xl mx-auto  px-5 rounded-lg py-4">
         <header tw="bg-primary-fill py-1 m-2">
           <SubHeader tw="text-center text-base">Most recent posts:</SubHeader>
         </header>

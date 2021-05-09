@@ -18,6 +18,7 @@ import tw, { styled } from "twin.macro"
 import "twin.macro"
 import { string } from "prop-types"
 import { FileNode } from "gatsby-plugin-image/dist/src/components/hooks"
+import { TypeStripe } from "./PostShort"
 
 ///these are the elements provided to posts in mdx
 const shortcodes = { Kbd }
@@ -95,39 +96,44 @@ const PostPage = ({ data: { mdx } }: IQueryData) => {
     <>
       <Layout>
         <ContentBounds>
-          <Container tw="py-6">
-            <header tw="mb-8">
-              <Header>{mdx.frontmatter.title}</Header>
-              <div tw="flex justify-between items-start">
-                <div tw="flex gap-1">
-                  {tags.map(tag => (
-                    <div tw="font-tmono text-xs shadow rounded-xl px-2 py-1 bg-tertiary-fill">
-                      <h6>{tag}</h6>
-                    </div>
-                  ))}
+          <div tw="bg-secondary-fill rounded-lg py-6">
+            <TypeStripe type={mdx.frontmatter.type}>
+              {mdx.frontmatter.type}
+            </TypeStripe>
+            <Container tw="">
+              <header tw="mb-8">
+                <Header>{mdx.frontmatter.title}</Header>
+                <div tw="flex justify-between items-start">
+                  <div tw="flex gap-1">
+                    {tags.map(tag => (
+                      <div tw="font-tmono text-xs shadow rounded-xl px-2 py-1 bg-tertiary-fill">
+                        <h6>{tag}</h6>
+                      </div>
+                    ))}
+                  </div>
+                  <h6 tw=" font-tmono text-right inline">
+                    {format(parseISO(mdx.frontmatter.date), "MMM d, y")}
+                  </h6>
                 </div>
-                <h6 tw=" font-tmono text-right inline">
-                  {format(parseISO(mdx.frontmatter.date), "MMM d, y")}
-                </h6>
-              </div>
-            </header>
-            {procImage ? (
-              <div tw="flex justify-center max-w-xl mx-auto shadow-2xl">
-                <GatsbyImage
-                  image={procImage}
-                  alt={mdx.frontmatter.description}
-                />
-              </div>
-            ) : null}
+              </header>
+              {procImage ? (
+                <div tw="flex justify-center max-w-xl mx-auto shadow-2xl">
+                  <GatsbyImage
+                    image={procImage}
+                    alt={mdx.frontmatter.description}
+                  />
+                </div>
+              ) : null}
 
-            <PostStyles>
-              <Text>
-                <MDXProvider components={shortcodes}>
-                  <MDXRenderer>{mdx.body}</MDXRenderer>
-                </MDXProvider>
-              </Text>
-            </PostStyles>
-          </Container>
+              <PostStyles>
+                <Text>
+                  <MDXProvider components={shortcodes}>
+                    <MDXRenderer>{mdx.body}</MDXRenderer>
+                  </MDXProvider>
+                </Text>
+              </PostStyles>
+            </Container>
+          </div>
           <NavLink tw="mx-auto mt-6" to="/posts">
             Back to Posts
           </NavLink>
@@ -148,6 +154,7 @@ interface IQueryData {
         tags: string
         description: string
         image: FileNode
+        type: string
       }
     }
   }
@@ -162,6 +169,7 @@ export const pageQuery = graphql`
         title
         date
         tags
+        type
         description
         image {
           childImageSharp {

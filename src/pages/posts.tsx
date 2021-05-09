@@ -74,7 +74,7 @@ const PostsPage = ({ data }: PageProps<QueryPosts>) => {
 
   return (
     <Layout>
-      <ContentBounds>
+      <ContentBounds tw="">
         <header tw="py-3 px-4">
           <Header>Posts</Header>
           <Text tw="my-0">
@@ -96,11 +96,11 @@ const PostsPage = ({ data }: PageProps<QueryPosts>) => {
             </li>
           </ul>
         </header>
-        <div tw="grid grid-cols-7 gap-6 items-start">
-          <ul tw="col-span-7 lg:col-span-5 order-2 md:order-none mx-auto sm:px-2">
+        <div tw="flex flex-col items-center justify-center">
+          <ul tw="grid grid-cols-1 lg:grid-cols-2 gap-3">
             {currentPosts.map(post => {
               return (
-                <li tw="my-2 hover:shadow-2xl filter brightness-95 hover:(brightness-100) transition-all duration-300">
+                <li tw="hover:shadow-2xl filter brightness-95 hover:(brightness-100) transition-all duration-300">
                   <Link to={post.slug}>
                     <PostShort
                       title={post.title}

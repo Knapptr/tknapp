@@ -20,7 +20,7 @@ const AboutPage = () => {
   return (
     <Layout>
       <ContentBounds>
-        <Container tw="py-6">
+        <Container tw="py-6 bg-secondary-fill">
           <Header>About Me</Header>
           <DivideHR />
           <div tw="flex  flex-col md:flex-row  md:items-start lg:items-center  gap-10 ">

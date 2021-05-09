@@ -5,7 +5,7 @@ export const ContentBounds = styled.div`
   ${tw`w-full max-w-4xl sm:w-5/6 mx-auto flex flex-col content-center`}
 `
 export const Container = styled.div`
-  ${tw`bg-secondary-fill  px-3 sm:px-7 rounded-lg shadow-lg sm:overflow-auto `}
+  ${tw`  px-3 sm:px-7 rounded-lg  `}
 `
 export const ColContainer = styled.div`
   ${tw` flex flex-col sm:flex-row gap-4 `}

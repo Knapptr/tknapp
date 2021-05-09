@@ -5,9 +5,10 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        myGreen: "green",
-        myBlue: "blue",
-        myRed: "red",
+        all: "var(--color-all)",
+        music: "var(--color-music)",
+        other: "var(--color-other)",
+        code: "var(--color-code)",
         primary: {
           fg: "var(--color-primary)",
           fill: "var(--bg-color-primary)",
