@@ -36,7 +36,7 @@ const Footer = () => {
               </a>
             </StyledLogoLi>
           </ul>
-          <ul tw="flex gap-2">
+          <ul tw="flex gap-2 flex-wrap">
             <StyledFooterNavItem>
               <Link to="/about">about</Link>
             </StyledFooterNavItem>

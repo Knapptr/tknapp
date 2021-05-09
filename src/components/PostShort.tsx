@@ -36,9 +36,9 @@ const PostShort = ({
   const procImage = getImage(image)
   return (
     // <Link tw=" border hover:shadow-2xl transition-all" to={slug}>
-    <Container tw="py-8">
+    <Container tw="py-8 flex-grow">
       <ColContainer tw="flex-nowrap">
-        <div tw=" w-3/4 md:w-1/2 order-2 sm:order-none">
+        <div tw=" w-3/4 md:w-1/2 order-2 sm:order-none text-center mx-auto sm:text-left">
           <h6 tw="font-light font-tmono text-tertiary-fg">
             {format(parseISO(date), "MMM d, y")}
           </h6>
@@ -48,7 +48,7 @@ const PostShort = ({
             </NavLink>
           </Header>
           {/* <DivideHR /> */}
-          <Text>{description}</Text>
+          <Text tw="">{description}</Text>
         </div>
         <div tw="w-full md:w-1/2 relative md:max-h-48">
           {procImage ? (

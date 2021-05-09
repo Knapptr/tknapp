@@ -5,13 +5,16 @@ export const ContentBounds = styled.div`
   ${tw`w-full max-w-4xl sm:w-5/6 mx-auto flex flex-col content-center`}
 `
 export const Container = styled.div`
-  ${tw`bg-secondary-fill  px-3 sm:px-7 my-4 rounded-lg shadow-lg sm:overflow-auto mb-6`}
+  ${tw`bg-secondary-fill  px-3 sm:px-7 rounded-lg shadow-lg sm:overflow-auto `}
 `
 export const ColContainer = styled.div`
   ${tw` flex flex-col sm:flex-row gap-4 `}
 `
 export const Header = styled.h2`
   ${tw`font-tmono font-bold text-3xl my-2  md:text-4xl xl:text-5xl`}
+`
+export const SubHeader = styled(Header)`
+  ${tw`text-xl md:text-xl lg:text-2xl`}
 `
 export const DivideHR = styled.hr`
   ${tw`my-4 border-primary-fg w-1/2`}
@@ -56,8 +59,8 @@ export const ExtNavLink = styled.a`
   ${tw`cursor-pointer hover:text-primary-fg font-bold hover:underline font-tmono `}
 `
 export const NavList = styled.ul`
-  ${tw`flex flex-row flex-wrap sm:ml-auto gap-4 justify-center order-1 sm:order-none`}
+  ${tw`flex flex-row flex-wrap gap-4 justify-center`}
 `
 export const Nav = styled.nav`
-  ${tw`flex flex-col items-center sm:flex-row px-6 pt-4 pb-2  font-tmono w-full mx-auto sm:items-baseline gap-4 max-w-5xl  `}
+  ${tw`flex items-center px-6 pt-4 pb-2  font-tmono w-full mx-auto sm:items-baseline gap-4 max-w-5xl  `}
 `

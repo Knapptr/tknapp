@@ -7,7 +7,7 @@ const ThemeSwitch = () => {
   return (
     <button
       onClick={toggleTheme}
-      tw="text-base w-12  p-1 hover:opacity-75 focus:outline-none border border-tertiary-fg bg-secondary-fill rounded-full focus:ring-0 shadow"
+      tw="text-base w-9  p-1 hover:opacity-75 focus:outline-none border border-tertiary-fg bg-secondary-fill rounded-full focus:ring-0 shadow"
     >
       {theme === "dark" ? "🌛" : "🌄"}
     </button>

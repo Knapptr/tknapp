@@ -70,10 +70,10 @@ const PostsPage = ({ data }: PageProps<QueryPosts>) => {
     <Layout>
       <ContentBounds>
         <div tw="grid grid-cols-7 gap-6 items-start">
-          <ul tw="col-span-7 lg:col-span-5 order-2 md:order-none">
+          <ul tw="col-span-7 lg:col-span-5 order-2 md:order-none mx-auto sm:px-2">
             {currentPosts.map(post => {
               return (
-                <li tw="hover:shadow-2xl filter brightness-95 hover:(brightness-100) transition-all duration-300">
+                <li tw="my-2 hover:shadow-2xl filter brightness-95 hover:(brightness-100) transition-all duration-300">
                   <Link to={post.slug}>
                     <PostShort
                       title={post.title}
