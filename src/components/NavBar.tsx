@@ -13,7 +13,7 @@ const NavBar = () => {
   }
   return (
     <>
-      <div tw="w-full bg-primary-fill mb-3 md:mb-4 lg:mb-6">
+      <div tw="w-full bg-primary-fill mb-3 md:mb-4 lg:mb-6 relative">
         <Nav>
           <header>
             <Link to="/">
@@ -42,7 +42,7 @@ const NavBar = () => {
           </div>
         </Nav>
         {/* Hamburgy */}
-        <div tw="sm:hidden">
+        <div tw="sm:hidden absolute bg-primary-fill w-full pb-4">
           {hamburgerOpen && (
             <NavList tw="">
               <NavLink activeClassName="active" to="/about">
