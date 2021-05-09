@@ -4,6 +4,7 @@ import { useState } from "react"
 import { Link } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
 import tw, { styled, theme } from "twin.macro"
+import { keyframes } from "@emotion/react"
 import Sub from "../components/subel"
 import TestTwo from "../components/test2"
 import TestThree from "../components/test3"
@@ -23,19 +24,38 @@ import {
   Button,
 } from "../components/styled"
 
+const Wave = keyframes`
+    0%{
+      transform: rotate(0deg);
+    }
+    50%{
+      transform: rotate(45deg);
+    }
+    100%{
+      transform: rotate(0deg);
+    }
+`
+const WavingHand = styled.span`
+  display: inline-block;
+  transform-origin: bottom right;
+  animation: ${Wave} 3s linear;
+`
+
 const IndexPage = () => {
   return (
     <Layout>
-      <Container>
+      <Container tw="py-24 font-tmono bg-tertiary-fill">
         <ContentBounds>
-          <Header>Hello!</Header>
-          <h3 tw="max-w-prose font-bold font-tmono p-2 text-lg md:text-xl">
-            I'm Tyler - a web developer, summer camp director, musician and
-            general dork.
-            <br /> <br />
-            <span tw="text-secondary-fg">Welcome to my internet thing.</span>
+          <Header tw="text-5xl md:text-7xl mb-12">
+            Hello!<WavingHand>👋</WavingHand>
+          </Header>
+          <h3 tw="max-w-prose font-bold  p-2 text-base md:text-lg text-secondary-fg font-tsans">
+            I'm Tyler - a web developer, summer camp director, musician, and
+            chips and salsa enthusiast.
           </h3>
-          <DivideHR />
+          <h4 tw="mt-6 text-primary-fg text-right font-bold text-xl">
+            Welcome to my internet thing.
+          </h4>
           <ColContainer></ColContainer>
         </ContentBounds>
       </Container>
