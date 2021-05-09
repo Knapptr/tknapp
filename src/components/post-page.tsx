@@ -128,7 +128,7 @@ const PostPage = ({ data: { mdx } }: IQueryData) => {
               </Text>
             </PostStyles>
           </Container>
-          <NavLink tw="mx-auto" to="/posts">
+          <NavLink tw="mx-auto mt-6" to="/posts">
             Back to Posts
           </NavLink>
         </ContentBounds>

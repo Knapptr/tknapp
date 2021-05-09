@@ -1,7 +1,13 @@
 import React, { useEffect, useState } from "react"
 import Layout from "../components/layout"
 import { graphql, Link, PageProps } from "gatsby"
-import { Button, Container, ContentBounds, Header } from "../components/styled"
+import {
+  Button,
+  Container,
+  ContentBounds,
+  Header,
+  Text,
+} from "../components/styled"
 import TagSorter, { PostTypes } from "../components/PostTypeSort"
 import PostShort from "../components/PostShort"
 import "twin.macro"
@@ -69,6 +75,27 @@ const PostsPage = ({ data }: PageProps<QueryPosts>) => {
   return (
     <Layout>
       <ContentBounds>
+        <header tw="py-3 px-4">
+          <Header>Posts</Header>
+          <Text tw="my-0">
+            These cover all sorts of subjects. Looking for something more
+            specific? Try narrowing it down by subject:
+          </Text>
+          <ul tw="flex justify-center gap-1 flex-wrap">
+            <li>
+              <Button>All</Button>
+            </li>
+            <li>
+              <Button>Code</Button>
+            </li>
+            <li>
+              <Button>Music</Button>
+            </li>
+            <li>
+              <Button>Other</Button>
+            </li>
+          </ul>
+        </header>
         <div tw="grid grid-cols-7 gap-6 items-start">
           <ul tw="col-span-7 lg:col-span-5 order-2 md:order-none mx-auto sm:px-2">
             {currentPosts.map(post => {

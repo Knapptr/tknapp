@@ -41,7 +41,7 @@ export const ExternalLink = styled.a`
   ${tw` hover:text-primary-fg hover:underline font-bold text-tertiary-fg`}
 `
 export const Button = styled.button`
-  ${tw`font-tmono bg-tertiary-fill text-tertiary-fg py-2 px-4 border border-tertiary-fg rounded block shadow-md hover:opacity-75 `}
+  ${tw`font-tmono bg-tertiary-fill text-tertiary-fg py-1 px-2 border border-tertiary-fg rounded block shadow-md hover:opacity-75 `}
 `
 export const TitleHeader = styled.h1`
   ${tw`text-center md:text-left text-2xl lg:text-3xl font-bold`}
