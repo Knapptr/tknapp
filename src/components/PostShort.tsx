@@ -36,7 +36,7 @@ const PostShort = ({
   const procImage = getImage(image)
   return (
     // <Link tw=" border hover:shadow-2xl transition-all" to={slug}>
-    <Container tw="">
+    <Container tw="py-8">
       <ColContainer tw="flex-nowrap">
         <div tw=" w-3/4 md:w-1/2 order-2 sm:order-none">
           <h6 tw="font-light font-tmono text-tertiary-fg">

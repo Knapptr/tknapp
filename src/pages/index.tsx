@@ -38,22 +38,32 @@ const Wave = keyframes`
 const WavingHand = styled.span`
   display: inline-block;
   transform-origin: bottom right;
-  animation: ${Wave} 3s linear;
+  animation: ${Wave} 1.5s linear;
 `
 
 const IndexPage = () => {
   return (
     <Layout>
-      <Container tw="py-24 font-tmono bg-tertiary-fill">
-        <ContentBounds>
+      <Container tw="py-12 font-tmono">
+        <ContentBounds tw="gap-4">
           <Header tw="text-5xl md:text-7xl mb-12">
-            Hello!<WavingHand>👋</WavingHand>
+            <WavingHand>👋</WavingHand>Hello!
           </Header>
-          <h3 tw="max-w-prose font-bold  p-2 text-base md:text-lg text-secondary-fg font-tsans">
-            I'm Tyler - a web developer, summer camp director, musician, and
-            chips and salsa enthusiast.
-          </h3>
-          <h4 tw="mt-6 text-primary-fg text-right font-bold text-xl">
+          <div tw="flex flex-col md:flex-row font-bold  p-2 text-base text-tertiary-fg font-tsans gap-3 justify-center items-center">
+            <StaticImage
+              alt="me! my head!"
+              src="../images/mecxbaumann.jpg"
+              tw="rounded-full max-w-xs shadow-lg"
+              placeholder="blurred"
+            />
+            <h3 tw="max-w-sm">
+              I'm Tyler - a web developer, summer camp director, musician and
+              general dork. I like bikes, games, chips, salsa, and making things
+              with computers.
+            </h3>
+            <h3 tw="max-w-xs"></h3>
+          </div>
+          <h4 tw="mt-6  text-primary-fg font-bold text-3xl sm:text-4xl md:text-5xl">
             Welcome to my internet thing.
           </h4>
           <ColContainer></ColContainer>
