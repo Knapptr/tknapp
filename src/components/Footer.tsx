@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faTwitter } from "@fortawesome/free-brands-svg-icons"
 import { faGithub } from "@fortawesome/free-brands-svg-icons"
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons"
+import { Link } from "gatsby"
 
 const StyledLogoLi = styled.li`
   ${tw`hover:text-secondary-fg cursor-pointer`}
@@ -20,20 +21,34 @@ const Footer = () => {
         <div tw="flex flex-col items-center mx-auto gap-0.5">
           <ul tw="flex gap-4 ">
             <StyledLogoLi>
-              <FontAwesomeIcon icon={faTwitter} />
+              <a href="https://twitter.com/Moosehands" target="__blank">
+                <FontAwesomeIcon icon={faTwitter} />
+              </a>
             </StyledLogoLi>
             <StyledLogoLi>
-              <FontAwesomeIcon icon={faEnvelope} />
+              <a href="mailto:knapptr@gmail.com?subject=Hellofrom tknapp.net!">
+                <FontAwesomeIcon icon={faEnvelope} />
+              </a>
             </StyledLogoLi>
             <StyledLogoLi>
-              <FontAwesomeIcon icon={faGithub} />
+              <a href="https://github.com/knapptr" target="__blank">
+                <FontAwesomeIcon icon={faGithub} />
+              </a>
             </StyledLogoLi>
           </ul>
           <ul tw="flex gap-2">
-            <StyledFooterNavItem>about</StyledFooterNavItem>
-            <StyledFooterNavItem>posts</StyledFooterNavItem>
-            <StyledFooterNavItem>projects</StyledFooterNavItem>
-            <StyledFooterNavItem>contact</StyledFooterNavItem>
+            <StyledFooterNavItem>
+              <Link to="/about">about</Link>
+            </StyledFooterNavItem>
+            <StyledFooterNavItem>
+              <Link to="/posts">posts</Link>
+            </StyledFooterNavItem>
+            <StyledFooterNavItem>
+              <Link to="/projects">projects</Link>
+            </StyledFooterNavItem>
+            <StyledFooterNavItem>
+              <Link to="/contact">contact</Link>
+            </StyledFooterNavItem>
           </ul>
           <p tw="mt-2 font-tsans font-light text-xs">Tyler Knapp ©2021</p>
         </div>
