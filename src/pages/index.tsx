@@ -54,15 +54,17 @@ const renderTwoMostRecent = (posts: IPostData[]) => {
       key={post.node.frontmatter.title}
       tw="flex-1 flex flex-col hover:shadow-2xl filter brightness-95 hover:(brightness-100) transition-all duration-300 cursor-pointer"
     >
-      <PostShort
-        title={post.node.frontmatter.title}
-        description={post.node.frontmatter.description}
-        date={post.node.frontmatter.date}
-        image={post.node.frontmatter.image}
-        tags={post.node.frontmatter.tags.split(",")}
-        type={post.node.frontmatter.type}
-        slug={post.node.fields.slug}
-      />
+      <Link to={post.node.fields.slug}>
+        <PostShort
+          title={post.node.frontmatter.title}
+          description={post.node.frontmatter.description}
+          date={post.node.frontmatter.date}
+          image={post.node.frontmatter.image}
+          tags={post.node.frontmatter.tags.split(",")}
+          type={post.node.frontmatter.type}
+          slug={post.node.fields.slug}
+        />
+      </Link>
     </li>
   ))
 }

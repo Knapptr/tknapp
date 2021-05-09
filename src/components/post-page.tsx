@@ -95,7 +95,7 @@ const PostPage = ({ data: { mdx } }: IQueryData) => {
     <>
       <Layout>
         <ContentBounds>
-          <Container>
+          <Container tw="py-6">
             <header tw="mb-8">
               <Header>{mdx.frontmatter.title}</Header>
               <div tw="flex justify-between items-start">
