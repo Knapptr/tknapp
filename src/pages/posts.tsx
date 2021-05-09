@@ -6,6 +6,7 @@ import TagSorter, { PostTypes } from "../components/PostTypeSort"
 import PostShort from "../components/PostShort"
 import "twin.macro"
 import { GatsbyImageProps } from "gatsby-plugin-image"
+import { FileNode } from "gatsby-plugin-image/dist/src/components/hooks"
 
 export interface QueryPosts {
   allMdx: {
@@ -20,7 +21,7 @@ export interface QueryPosts {
           tags: string
           type: string
           description: string
-          image: any
+          image: FileNode
         }
       }
     }[]
@@ -98,7 +99,10 @@ const PostsPage = ({ data }: PageProps<QueryPosts>) => {
 }
 export const query = graphql`
   query MyQuery {
-    allMdx(sort: { fields: frontmatter___date, order: DESC }) {
+    allMdx(
+      sort: { fields: frontmatter___date, order: DESC }
+      filter: { frontmatter: { published: { eq: true } } }
+    ) {
       edges {
         node {
           fields {

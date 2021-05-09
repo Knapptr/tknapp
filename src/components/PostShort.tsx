@@ -1,6 +1,7 @@
 import { format, parseISO } from "date-fns"
 import { Link } from "gatsby"
 import { GatsbyImageProps, getImage, GatsbyImage } from "gatsby-plugin-image"
+import { FileNode } from "gatsby-plugin-image/dist/src/components/hooks"
 
 import React from "react"
 import "twin.macro"
@@ -24,7 +25,7 @@ const PostShort = ({
   image,
   slug,
 }: {
-  image: any
+  image: FileNode
   title: string
   date: string
   description: string

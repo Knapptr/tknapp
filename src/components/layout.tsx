@@ -18,6 +18,9 @@ import "@fontsource/jetbrains-mono"
 import NavBar from "./NavBar"
 import { ThemeContext, ThemeProvider } from "../themecontext"
 import { ContentBounds } from "./styled"
+import Footer from "./Footer"
+import "twin.macro"
+
 const Layout = ({ children }: { children: JSX.Element | JSX.Element[] }) => {
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
@@ -31,9 +34,12 @@ const Layout = ({ children }: { children: JSX.Element | JSX.Element[] }) => {
 
   return (
     <>
-      <GlobalStyles />
-      <NavBar />
-      <main>{children}</main>
+      <div tw="flex flex-col min-h-screen">
+        <GlobalStyles />
+        <NavBar />
+        <main tw="flex-grow">{children}</main>
+        <Footer tw="flex-shrink-0" />
+      </div>
     </>
   )
 }

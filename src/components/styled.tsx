@@ -59,5 +59,5 @@ export const NavList = styled.ul`
   ${tw`flex flex-row flex-wrap sm:ml-auto gap-4 justify-center order-1 sm:order-none`}
 `
 export const Nav = styled.nav`
-  ${tw`flex flex-col items-center sm:flex-row px-6 py-5 font-tmono w-full max-w-5xl mx-auto sm:items-baseline gap-4 mb-6 md:mb-12 lg:mb-16 `}
+  ${tw`flex flex-col items-center sm:flex-row px-6 pt-4 pb-2  font-tmono w-full mx-auto sm:items-baseline gap-4 max-w-5xl  `}
 `

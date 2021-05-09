@@ -16,6 +16,8 @@ import {
 } from "./styled"
 import tw, { styled } from "twin.macro"
 import "twin.macro"
+import { string } from "prop-types"
+import { FileNode } from "gatsby-plugin-image/dist/src/components/hooks"
 
 ///these are the elements provided to posts in mdx
 const shortcodes = { Kbd }
@@ -86,7 +88,7 @@ const PostStyles = styled.div`
   }
 `
 
-const PostPage = ({ data: { mdx } }) => {
+const PostPage = ({ data: { mdx } }: IQueryData) => {
   const procImage = getImage(mdx.frontmatter.image)
   const tags = mdx.frontmatter.tags.split(",")
   return (
@@ -113,7 +115,7 @@ const PostPage = ({ data: { mdx } }) => {
               <div tw="flex justify-center max-w-xl mx-auto shadow-2xl">
                 <GatsbyImage
                   image={procImage}
-                  alt={mdx.frontmatter.descriptionn}
+                  alt={mdx.frontmatter.description}
                 />
               </div>
             ) : null}
@@ -133,6 +135,22 @@ const PostPage = ({ data: { mdx } }) => {
       </Layout>
     </>
   )
+}
+
+interface IQueryData {
+  data: {
+    mdx: {
+      id: string
+      body: any
+      frontmatter: {
+        title: string
+        date: string
+        tags: string
+        description: string
+        image: FileNode
+      }
+    }
+  }
 }
 
 export const pageQuery = graphql`
