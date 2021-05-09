@@ -23,7 +23,7 @@ const baseStyles = css`
     --bg-color-tertiary: #5a5a5a;
   }
   body {
-    ${tw`bg-primary-fill text-primary-fg transition-all `}
+    ${tw`bg-primary-fill text-primary-fg transition-all`}
   }
 `
 

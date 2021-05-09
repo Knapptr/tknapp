@@ -15,10 +15,18 @@ const NavBar = () => {
           </Link>
         </header>
         <NavList>
-          <NavLink to="/about">About</NavLink>
-          <NavLink to="/posts">Posts</NavLink>
-          <NavLink to="/projects">Projects</NavLink>
-          <NavLink to="/contact">Contact</NavLink>
+          <NavLink activeClassName="active" to="/about">
+            About
+          </NavLink>
+          <NavLink activeClassName="active" to="/posts">
+            Posts
+          </NavLink>
+          <NavLink activeClassName="active" to="/projects">
+            Projects
+          </NavLink>
+          <NavLink activeClassName="active" to="/contact">
+            Contact
+          </NavLink>
         </NavList>
         <ThemeSwitch />
       </Nav>

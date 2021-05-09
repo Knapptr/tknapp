@@ -1,5 +1,5 @@
 import Layout from "../components/layout"
-import me from "../images/me.jpg"
+import { StaticImage } from "gatsby-plugin-image"
 import {
   Container,
   ColContainer,
@@ -23,7 +23,7 @@ const AboutPage = () => {
         <Container>
           <Header>About Me</Header>
           <DivideHR />
-          <div tw="flex items-center flex-col md:flex-row sm:items-center gap-10 ">
+          <div tw="flex  flex-col md:flex-row  md:items-start lg:items-center  gap-10 ">
             <div tw="order-2 md:order-none">
               <Text>
                 <strong>
@@ -89,7 +89,7 @@ const AboutPage = () => {
                     >
                       cone
                     </ExtNavLink>
-                    , and make put other sounds up on my{" "}
+                    , and put other types of sounds up on my{" "}
                     <ExtNavLink
                       target="_blank"
                       href="http://soundcloud.com/knappt"
@@ -122,7 +122,13 @@ const AboutPage = () => {
               </FlexUL>
             </div>
             <div>
-              <img tw="max-h-64 md:max-h-full mb-6" src={me} />
+              {/* <img tw="max-h-64 md:max-h-full mb-6" src={me} /> */}
+              <StaticImage
+                alt="Me!"
+                placeholder="blurred"
+                src="../images/me.jpg"
+                tw="max-h-72 md:max-h-full"
+              />
             </div>{" "}
           </div>
         </Container>

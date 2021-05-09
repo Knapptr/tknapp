@@ -1,0 +1,64 @@
+---
+title: 2 New things I learned in vim.
+description: Number incrementing and cursor placement in search results.
+date: 2020-11-02
+location: posts
+tags: vim,vscode,dev
+type: code
+image: ./images/modelm.jpg
+---
+
+It might be my inner New Englander, but I _love_ a difficult thing. I've been learning
+to use Vim for the last 4 months. ~~I'm
+not sure its actually made me any faster at writing code.~~ It has NOT made me any
+faster at writing code, but it has changed the way I think about editing code. I still
+mostly work in Vscode, but use the [VscodeVim](https://github.com/VSCodeVim/Vim) extension.
+
+Here are the two things I learned today, while working on a lyrics guessing game
+inspired by the brothers over at [MBMBAM](https://www.themcelroy.family/mbmbam).
+
+### Incrementing Numbers
+
+> ** <Kbd>cntrl</Kbd> + <Kbd>a</Kbd> Increments** <br/>**<Kbd>cntrl</Kbd> + <Kbd>x</Kbd> Decrements**
+
+![increment numbers easily!](./images/inc.gif)
+While creating some dummy JSON files to use in development, I wanted to append number
+tags to a lyrics field to id tracks in the 'lyrics display'. After copying and pasting
+blocks of JSON information, I didn't really want to append the numbers to each line.
+
+But I didn't have to increment each number each time! In comes **Visual Block** to
+the rescue!
+
+Then, after selecting all my numbers down the column, the keys: <br/> <Kbd>g</Kbd> + <Kbd>cntrl</Kbd> + <Kbd> a</Kbd> will increment the numbers, creating a sequence.
+
+![incrementing colum of numers](./images/columnInc.gif)
+
+(note: using just <Kbd>cntrl</Kbd> +<Kbd>a</Kbd> would increment all the numbers but not in
+sequence.)
+
+### Cursor Placement after search.
+
+Something I also found necessary was repeating an action on search results, but at a
+specific location within the word. For example changing multiple variables from
+`setSign` to `setNumberSign`.
+
+While <Kbd>c</Kbd><Kbd>a</Kbd><Kbd>w</Kbd> and typing `setNumberSign` in combination with "." would probably be the fastest way here. But for the sake of argument (because I can't think of a different use pattern at the moment.) I'll demonstrate an alternative.
+
+After entering search mode, I enter the query (`/setSign`) to find all instances of
+`setSign`. Then by appending `/b+3` to my search, the cursor will land on the `S`.
+Entering `/e` after a search will place the cursor at the end of the result.
+
+Furthermore `/e+3` would place the cursor 3 spaces after the end.
+
+So an alternative to using <Kbd>c</Kbd><Kbd>a</Kbd><Kbd>w</Kbd>,<Kbd>n</Kbd>, and <Kbd>.</Kbd> _could_ be the command:
+
+> `/setSign/b+3`,"i"`Number`
+
+followed by using <Kbd>n</Kbd> to get the next search result, and <Kbd>.</Kbd> to repeat the insertion.
+
+![/setsign/b+3 in action](./images/searchcursor.gif)
+
+Pretty cool.
+
+Well, now that I've spent all this time writing this post, I can assuredly say, that
+Vim has made me significantly slower at getting work done. Oh well.
