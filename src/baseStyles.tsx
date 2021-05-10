@@ -24,7 +24,7 @@ const baseStyles = css`
     --color-secondary: #eeeeee;
     --bg-color-secondary: #414141;
     --color-tertiary: #c6c8d8;
-    --bg-color-tertiary: #494949;
+    --bg-color-tertiary: #363636;
     --color-other: #8f3f71;
     --color-music: #427b58;
     --color-all: #79740e;

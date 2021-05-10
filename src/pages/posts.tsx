@@ -13,6 +13,7 @@ import PostShort from "../components/PostShort"
 import "twin.macro"
 import { GatsbyImageProps } from "gatsby-plugin-image"
 import { FileNode } from "gatsby-plugin-image/dist/src/components/hooks"
+import TypeFilter from "../components/TypeFilter"
 
 export interface QueryPosts {
   allMdx: {
@@ -60,14 +61,14 @@ const PostsPage = ({ data }: PageProps<QueryPosts>) => {
     }))
     return allPosts
   }
-  const filterPostsByType = (type: PostTypes) => {
+  const filterPostsByType = (type: PostTypes): void => {
     const allPosts = initializePosts(rawPosts)
     if (type === "all") {
       setCurrentPosts(allPosts)
-      return
+    } else {
+      const filteredPosts = allPosts.filter(post => post.type === type)
+      setCurrentPosts(filteredPosts)
     }
-    const filteredPosts = allPosts.filter(post => post.type === type)
-    setCurrentPosts(filteredPosts)
   }
 
   const [currentPosts, setCurrentPosts] = useState(initializePosts(rawPosts))
@@ -75,29 +76,12 @@ const PostsPage = ({ data }: PageProps<QueryPosts>) => {
   return (
     <Layout>
       <ContentBounds tw="">
-        <header tw="py-3 px-4">
-          <Header>Posts</Header>
-          <Text tw="my-0">
-            These cover all sorts of subjects. Looking for something more
-            specific? Try narrowing it down by subject:
-          </Text>
-          <ul tw="flex justify-center gap-1 flex-wrap">
-            <li>
-              <Button>All</Button>
-            </li>
-            <li>
-              <Button>Code</Button>
-            </li>
-            <li>
-              <Button>Music</Button>
-            </li>
-            <li>
-              <Button>Other</Button>
-            </li>
-          </ul>
+        <header tw="py-3 px-6 bg-tertiary-fill mb-8 rounded-lg">
+          <Header tw="mx-auto text-center">Posts</Header>
+          <TypeFilter filter={filterPostsByType} />
         </header>
-        <div tw="flex flex-col items-center justify-center">
-          <ul tw="grid grid-cols-1 lg:grid-cols-2 gap-3">
+        <div tw="flex flex-col items-center flex-initial justify-center">
+          <ul tw="flex flex-col gap-4 ">
             {currentPosts.map(post => {
               return (
                 <li tw="hover:shadow-2xl filter brightness-95 hover:(brightness-100) transition-all duration-300">
