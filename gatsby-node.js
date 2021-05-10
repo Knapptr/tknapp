@@ -65,4 +65,30 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       context: { id: node.id },
     })
   })
+
+  const projectResult = await graphql(`
+    query {
+      allMdx(filter: { fields: { contentType: { eq: "projects" } } }) {
+        edges {
+          node {
+            id
+            fields {
+              slug
+            }
+          }
+        }
+      }
+    }
+  `)
+  if (projectResult.errors) {
+    reporter.panicOnBuild("error getting projects")
+  }
+  const projects = projectResult.data.allMdx.edges
+  projects.forEach(({ node }, index) => {
+    createPage({
+      path: node.fields.slug,
+      component: path.resolve(`./src/components/project-page.tsx`),
+      context: { id: node.id },
+    })
+  })
 }

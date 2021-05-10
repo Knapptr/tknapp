@@ -11,10 +11,13 @@ export const ColContainer = styled.div`
   ${tw` flex flex-col sm:flex-row gap-4 `}
 `
 export const Header = styled.h2`
-  ${tw`font-tmono font-bold text-3xl my-2  md:text-4xl xl:text-5xl`}
+  ${tw`font-tmono font-bold text-3xl my-1 md:text-4xl xl:text-5xl`}
 `
 export const SubHeader = styled(Header)`
   ${tw`text-xl md:text-xl lg:text-2xl`}
+`
+export const LinkButton = styled.a`
+  ${tw`bg-tertiary-fill py-2 px-3 font-tmono text-sm border border-tertiary-fg hover:(filter brightness-110) rounded`}
 `
 export const DivideHR = styled.hr`
   ${tw`my-4 border-primary-fg w-1/2`}
