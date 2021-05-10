@@ -9,6 +9,7 @@ module.exports = {
         music: "var(--color-music)",
         other: "var(--color-other)",
         code: "var(--color-code)",
+        project: "var(--color-project)",
         primary: {
           fg: "var(--color-primary)",
           fill: "var(--bg-color-primary)",

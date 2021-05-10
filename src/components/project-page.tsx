@@ -1,12 +1,7 @@
 import React from "react"
-import { MDXRenderer } from "gatsby-plugin-mdx"
 import { graphql } from "gatsby"
-import Layout from "./layout"
-import { parseISO, format } from "date-fns"
-import { GatsbyImage, getImage } from "gatsby-plugin-image"
-import { MDXProvider } from "@mdx-js/react"
-import Stylesheet from "../stylesheetProvider"
 import ContentLayout from "./ContentLayout"
+import { NavLink } from "./styled"
 
 const ProjectPage = ({ data: { mdx } }: IQueryData) => {
   const project = {
@@ -22,7 +17,9 @@ const ProjectPage = ({ data: { mdx } }: IQueryData) => {
 
   return (
     <>
-      <ContentLayout content={project}></ContentLayout>
+      <ContentLayout content={project}>
+        <NavLink to="/projects">Back to Projects</NavLink>
+      </ContentLayout>
     </>
   )
 }

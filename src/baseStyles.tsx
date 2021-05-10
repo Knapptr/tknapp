@@ -17,6 +17,7 @@ const baseStyles = css`
     --color-music: #8ec07c;
     --color-all: #98971a;
     --color-code: #fe8019;
+    --color-project: #d79921;
   }
   .dark {
     --color-primary: #e0dede;
@@ -29,6 +30,7 @@ const baseStyles = css`
     --color-music: #427b58;
     --color-all: #79740e;
     --color-code: #af3a03;
+    --color-project: #d79921;
   }
   html,
   body {

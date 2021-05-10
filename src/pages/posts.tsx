@@ -75,11 +75,11 @@ const PostsPage = ({ data }: PageProps<QueryPosts>) => {
 
   return (
     <Layout>
+      <header tw="py-3 px-6 bg-tertiary-fill mb-8 rounded-lg">
+        <Header tw="mx-auto text-center">Posts</Header>
+        <TypeFilter filter={filterPostsByType} />
+      </header>
       <ContentBounds tw="">
-        <header tw="py-3 px-6 bg-tertiary-fill mb-8 rounded-lg">
-          <Header tw="mx-auto text-center">Posts</Header>
-          <TypeFilter filter={filterPostsByType} />
-        </header>
         <div tw="flex flex-col items-center flex-initial justify-center">
           <ul tw="flex flex-col gap-4 ">
             {currentPosts.map(post => {

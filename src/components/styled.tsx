@@ -10,6 +10,13 @@ export const Container = styled.div`
 export const ColContainer = styled.div`
   ${tw` flex flex-col sm:flex-row gap-4 `}
 `
+export const TagBadgeInset = styled.h6`
+  ${tw`bg-secondary-fill rounded-2xl py-1 px-4 border border-secondary-fg cursor-pointer opacity-75 `}
+`
+export const TagBadge = styled.div`
+  ${tw`font-tmono text-xs shadow rounded-xl px-2 py-1 bg-secondary-fill`}
+`
+
 export const Header = styled.h2`
   ${tw`font-tmono font-bold text-3xl my-1 md:text-4xl xl:text-5xl`}
 `
@@ -17,7 +24,7 @@ export const SubHeader = styled(Header)`
   ${tw`text-xl md:text-xl lg:text-2xl`}
 `
 export const LinkButton = styled.a`
-  ${tw`bg-tertiary-fill py-2 px-3 font-tmono text-sm border border-tertiary-fg hover:(filter brightness-110) rounded`}
+  ${tw`bg-secondary-fill py-2 px-3 font-tmono text-sm border border-tertiary-fg hover:(filter brightness-110) rounded`}
 `
 export const DivideHR = styled.hr`
   ${tw`my-4 border-primary-fg w-1/2`}

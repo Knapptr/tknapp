@@ -31,34 +31,35 @@ const ContentHeaders = ({
       {type && <TypeStripe type={type}>{type}</TypeStripe>}
       <div tw=" mt-12 mx-auto max-w-3xl px-8">
         <header tw="mb-8">
-          <Header tw="flex items-center justify-between mb-4">
+          <Header tw="flex  items-center justify-between mb-4 flex-wrap">
             {title}
-            <div tw="flex gap-3">
-              {example && (
-                <LinkButton target="_blank" href={example}>
-                  Running Example
-                </LinkButton>
-              )}
-              {code && (
-                <LinkButton target="_blank" href={code}>
-                  Code
-                </LinkButton>
-              )}
-            </div>
           </Header>
+
+          <div tw="flex gap-1 mb-2">
+            {tags.map(tag => (
+              <div tw="font-tmono text-xs shadow rounded-xl px-2 py-1 bg-tertiary-fill">
+                <h6>{tag}</h6>
+              </div>
+            ))}
+          </div>
+          <div tw="flex gap-3 flex-wrap">
+            {example && (
+              <LinkButton target="_blank" href={example}>
+                Running Example
+              </LinkButton>
+            )}
+            {code && (
+              <LinkButton target="_blank" href={code}>
+                Code
+              </LinkButton>
+            )}
+          </div>
           <div tw="flex flex-col justify-between items-start gap-2">
             {date && (
               <h6 tw=" font-tmono text-right inline">
                 {format(parseISO(date), "MMM d, y")}
               </h6>
             )}
-            <div tw="flex gap-1">
-              {tags.map(tag => (
-                <div tw="font-tmono text-xs shadow rounded-xl px-2 py-1 bg-tertiary-fill">
-                  <h6>{tag}</h6>
-                </div>
-              ))}
-            </div>
           </div>
         </header>
         {processedImage ? (
