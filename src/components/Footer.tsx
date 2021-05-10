@@ -21,17 +21,28 @@ const Footer = () => {
         <div tw="flex flex-col items-center mx-auto gap-0.5">
           <ul tw="flex gap-4 ">
             <StyledLogoLi>
-              <a href="https://twitter.com/Moosehands" target="__blank">
+              <a
+                aria-label="@moosehands on twitter"
+                href="https://twitter.com/Moosehands"
+                target="__blank"
+              >
                 <FontAwesomeIcon icon={faTwitter} />
               </a>
             </StyledLogoLi>
             <StyledLogoLi>
-              <a href="mailto:knapptr@gmail.com?subject=Hellofrom tknapp.net!">
+              <a
+                aria-label="email knapptr@gmail.com"
+                href="mailto:knapptr@gmail.com?subject=Hellofrom tknapp.net!"
+              >
                 <FontAwesomeIcon icon={faEnvelope} />
               </a>
             </StyledLogoLi>
             <StyledLogoLi>
-              <a href="https://github.com/knapptr" target="__blank">
+              <a
+                aria-label="knapptr on github"
+                href="https://github.com/knapptr"
+                target="__blank"
+              >
                 <FontAwesomeIcon icon={faGithub} />
               </a>
             </StyledLogoLi>

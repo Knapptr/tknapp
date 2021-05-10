@@ -10,6 +10,7 @@ import TestTwo from "../components/test2"
 import TestThree from "../components/test3"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
+import { Helmet } from "react-helmet"
 import "twin.macro"
 import {
   ContentBounds,
@@ -71,41 +72,50 @@ const renderTwoMostRecent = (posts: IPostData[]) => {
 
 const IndexPage = ({ data }: PageProps<IPageQueryData>) => {
   return (
-    <Layout>
-      <Container tw="py-12 font-tmono bg-secondary-fill ">
-        <ContentBounds tw="gap-4">
-          <Header tw="text-5xl md:text-7xl mb-12 text-center md:text-left">
-            <WavingHand>👋</WavingHand>Hello!
-          </Header>
-          <div tw="flex flex-col md:flex-row font-bold  p-2 text-base text-tertiary-fg font-tsans gap-3 justify-center items-center">
-            <StaticImage
-              alt="me! my head!"
-              src="../images/mecxbaumann.jpg"
-              tw="rounded-full max-w-xs shadow-lg"
-              placeholder="blurred"
-            />
-            <h3 tw="text-center md:text-left max-w-sm text-xl">
-              I'm Tyler - a web developer, summer camp director, musician and
-              general dork. I like bikes, games, chips, salsa, and making things
-              with computers.
-            </h3>
-          </div>
-          <h4 tw="mt-6 text-center md:text-left text-primary-fg font-bold text-3xl sm:text-4xl md:text-5xl">
-            Welcome to my internet thing.
-          </h4>
-          <ColContainer></ColContainer>
-        </ContentBounds>
-      </Container>
-      {/* The recent posts div gets a slightly larger max width */}
-      <section tw="mt-12 max-w-6xl mx-auto  px-5 rounded-lg py-4">
-        <header tw="bg-primary-fill py-1 m-2">
-          <SubHeader tw="text-center text-base">Most recent posts:</SubHeader>
-        </header>
-        <ul tw="flex flex-col lg:flex-row justify-center gap-6">
-          {renderTwoMostRecent(data.allMdx.edges)}
-        </ul>
-      </section>
-    </Layout>
+    <>
+      <Helmet>
+        <title>Tknapp</title>
+        <meta
+          name="description"
+          content="The personal webpage of Tyler Knapp"
+        />
+      </Helmet>
+      <Layout>
+        <Container tw="py-12 font-tmono bg-secondary-fill ">
+          <ContentBounds tw="gap-4">
+            <Header tw="text-5xl md:text-7xl mb-12 text-center md:text-left">
+              <WavingHand>👋</WavingHand>Hello!
+            </Header>
+            <div tw="flex flex-col md:flex-row font-bold  p-2 text-base text-tertiary-fg font-tsans gap-3 justify-center items-center">
+              <StaticImage
+                alt="me! my head!"
+                src="../images/mecxbaumann.jpg"
+                tw="rounded-full max-w-xs shadow-lg"
+                placeholder="blurred"
+              />
+              <h3 tw="text-center md:text-left max-w-sm text-xl">
+                I'm Tyler - a web developer, summer camp director, musician and
+                general dork. I like bikes, games, chips, salsa, and making
+                things with computers.
+              </h3>
+            </div>
+            <h4 tw="mt-6 text-center md:text-left text-primary-fg font-bold text-3xl sm:text-4xl md:text-5xl">
+              Welcome to my internet thing.
+            </h4>
+            <ColContainer></ColContainer>
+          </ContentBounds>
+        </Container>
+        {/* The recent posts div gets a slightly larger max width */}
+        <section tw="mt-12 max-w-6xl mx-auto  px-5 rounded-lg py-4">
+          <header tw="bg-primary-fill py-1 m-2">
+            <SubHeader tw="text-center text-base">Most recent posts:</SubHeader>
+          </header>
+          <ul tw="flex flex-col lg:flex-row justify-center gap-6">
+            {renderTwoMostRecent(data.allMdx.edges)}
+          </ul>
+        </section>
+      </Layout>
+    </>
   )
 }
 

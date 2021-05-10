@@ -7,19 +7,14 @@
 
 import * as React from "react"
 import "@fontsource/itim"
-import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
-import Header from "./header"
 import tw, { GlobalStyles, styled, theme } from "twin.macro"
-import { Global } from "@emotion/react"
-import baseStyles from "../baseStyles"
 import "@fontsource/inter"
 import "@fontsource/jetbrains-mono"
 import NavBar from "./NavBar"
-import { ThemeContext, ThemeProvider } from "../themecontext"
-import { ContentBounds } from "./styled"
 import Footer from "./Footer"
 import "twin.macro"
+import { Helmet } from "react-helmet"
 
 const Layout = ({ children }: { children: JSX.Element | JSX.Element[] }) => {
   const data = useStaticQuery(graphql`

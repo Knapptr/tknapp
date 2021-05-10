@@ -7,6 +7,7 @@ import { FileNode } from "gatsby-plugin-image/dist/src/components/hooks"
 ///these are the elements provided to posts in mdx
 const shortcodes = { Kbd }
 import ContentLayout from "./ContentLayout"
+import { Helmet } from "react-helmet"
 
 const PostPage = ({ data: { mdx } }: IQueryData) => {
   const post = {
@@ -20,6 +21,10 @@ const PostPage = ({ data: { mdx } }: IQueryData) => {
   }
   return (
     <>
+      <Helmet>
+        <title>{post.title + "-Tknapp"}</title>
+        <meta name="description" content={post.description} />
+      </Helmet>
       <ContentLayout content={post}>
         <NavLink tw="mx-auto mt-6" to="/posts">
           Back to Posts

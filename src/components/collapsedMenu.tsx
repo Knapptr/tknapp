@@ -12,7 +12,10 @@ const CollapsedMenu = ({
 }) => {
   return (
     <>
-      <button tw="w-3 h-3 text-xl hover:text-secondary-fg">
+      <button
+        aria-label="view navbar"
+        tw="w-3 h-3 text-xl hover:text-secondary-fg"
+      >
         {isOpen ? (
           <FontAwesomeIcon onClick={toggle} icon={faTimes} />
         ) : (

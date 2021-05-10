@@ -1,14 +1,22 @@
 import Layout from "../components/layout"
 import { ContentBounds, Header } from "../components/styled"
-import PALink from "../components/ILink"
 import { graphql, PageProps } from "gatsby"
 import ProjectShort from "../components/ProjectShort"
 import "twin.macro"
+import React from "react"
+import { Helmet } from "react-helmet"
 
 const ProjectPage = ({ data }: PageProps<IQuery>) => {
   const projects = data.allMdx.edges
   return (
     <Layout>
+      <Helmet>
+        <title>Projects-Tknapp</title>
+        <meta
+          name="description"
+          content="Projects created to learn various software development techniques and frameworks."
+        />
+      </Helmet>
       <header tw="py-3 px-6 bg-tertiary-fill mb-8 rounded-lg">
         <Header tw="mx-auto text-center">Projects</Header>
       </header>

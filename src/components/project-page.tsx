@@ -2,6 +2,7 @@ import React from "react"
 import { graphql } from "gatsby"
 import ContentLayout from "./ContentLayout"
 import { NavLink } from "./styled"
+import { Helmet } from "react-helmet"
 
 const ProjectPage = ({ data: { mdx } }: IQueryData) => {
   const project = {
@@ -17,6 +18,10 @@ const ProjectPage = ({ data: { mdx } }: IQueryData) => {
 
   return (
     <>
+      <Helmet>
+        <title>{project.title + "-Tknapp"}</title>
+        <meta name="description" content={project.description} />
+      </Helmet>
       <ContentLayout content={project}>
         <NavLink to="/projects">Back to Projects</NavLink>
       </ContentLayout>

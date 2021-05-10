@@ -14,6 +14,7 @@ import "twin.macro"
 import { GatsbyImageProps } from "gatsby-plugin-image"
 import { FileNode } from "gatsby-plugin-image/dist/src/components/hooks"
 import TypeFilter from "../components/TypeFilter"
+import { Helmet } from "react-helmet"
 
 export interface QueryPosts {
   allMdx: {
@@ -75,6 +76,13 @@ const PostsPage = ({ data }: PageProps<QueryPosts>) => {
 
   return (
     <Layout>
+      <Helmet>
+        <title>Posts-Tknapp</title>
+        <meta
+          name="description"
+          content="Ramblings, musings and diatribes by Tyler Knapp"
+        />
+      </Helmet>
       <header tw="py-3 px-6 bg-tertiary-fill mb-8 rounded-lg">
         <Header tw="mx-auto text-center">Posts</Header>
         <TypeFilter filter={filterPostsByType} />
