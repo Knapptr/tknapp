@@ -6,6 +6,9 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions
 
   if (node.internal.type === "Mdx") {
+    // Need to get 'source' of mdx content. 'root' specifies what the name of the source (specified by gatsby-source-filesystem) is.
+    const parentNode = getNode(node.parent)
+    const root = parentNode.sourceInstanceName
     const value = createFilePath({ node, getNode })
 
     createNodeField({
@@ -14,7 +17,12 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
       //node
       node,
       //generated path for post
-      value: `/posts${value}`,
+      value: `/${root}${value}`,
+    })
+    createNodeField({
+      name: "contentType",
+      node,
+      value: `${root}`,
     })
   }
 }
@@ -22,20 +30,27 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
 exports.createPages = async ({ graphql, actions, reporter }) => {
   const { createPage } = actions
 
-  const result = await graphql(`
-    query {
-      allMdx(filter: { frontmatter: { published: { eq: true } } }) {
-        edges {
-          node {
-            id
-            fields {
-              slug
+  const result = await graphql(
+    `
+      query {
+        allMdx(
+          filter: {
+            frontmatter: { published: { eq: true } }
+            fields: { contentType: { eq: "posts" } }
+          }
+        ) {
+          edges {
+            node {
+              id
+              fields {
+                slug
+              }
             }
           }
         }
       }
-    }
-  `)
+    `
+  )
 
   if (result.errors) {
     reporter.panicOnBuild("error Loading create pages")

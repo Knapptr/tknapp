@@ -25,7 +25,7 @@ export interface QueryPosts {
         frontmatter: {
           date: string
           title: string
-          tags: string
+          tags: string[]
           type: string
           description: string
           image: FileNode
@@ -53,7 +53,7 @@ const PostsPage = ({ data }: PageProps<QueryPosts>) => {
     let allPosts = posts.map(post => ({
       title: post.node.frontmatter.title,
       date: post.node.frontmatter.date,
-      tags: post.node.frontmatter.tags.split(","),
+      tags: post.node.frontmatter.tags,
       type: post.node.frontmatter.type,
       description: post.node.frontmatter.description,
       image: post.node.frontmatter.image,
@@ -112,7 +112,10 @@ export const query = graphql`
   query MyQuery {
     allMdx(
       sort: { fields: frontmatter___date, order: DESC }
-      filter: { frontmatter: { published: { eq: true } } }
+      filter: {
+        frontmatter: { published: { eq: true } }
+        fields: { contentType: { eq: "posts" } }
+      }
     ) {
       edges {
         node {

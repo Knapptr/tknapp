@@ -91,7 +91,7 @@ const PostStyles = styled.div`
 
 const PostPage = ({ data: { mdx } }: IQueryData) => {
   const procImage = getImage(mdx.frontmatter.image)
-  const tags = mdx.frontmatter.tags.split(",")
+  const tags = mdx.frontmatter.tags
   return (
     <>
       <Layout>
@@ -151,7 +151,7 @@ interface IQueryData {
       frontmatter: {
         title: string
         date: string
-        tags: string
+        tags: string[]
         description: string
         image: FileNode
         type: string

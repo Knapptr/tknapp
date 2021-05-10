@@ -60,7 +60,7 @@ const renderTwoMostRecent = (posts: IPostData[]) => {
           description={post.node.frontmatter.description}
           date={post.node.frontmatter.date}
           image={post.node.frontmatter.image}
-          tags={post.node.frontmatter.tags.split(",")}
+          tags={post.node.frontmatter.tags}
           type={post.node.frontmatter.type}
           slug={post.node.fields.slug}
         />
@@ -101,7 +101,7 @@ const IndexPage = ({ data }: PageProps<IPageQueryData>) => {
         <header tw="bg-primary-fill py-1 m-2">
           <SubHeader tw="text-center text-base">Most recent posts:</SubHeader>
         </header>
-        <ul tw="flex flex-col lg:flex-row justify-center gap-3">
+        <ul tw="flex flex-col lg:flex-row justify-center gap-6">
           {renderTwoMostRecent(data.allMdx.edges)}
         </ul>
       </section>
@@ -119,7 +119,7 @@ interface IPostData {
       date: string
       description: string
       title: string
-      tags: string
+      tags: string[]
       type: string
     }
   }
@@ -135,7 +135,10 @@ export const pageQuery = graphql`
     allMdx(
       sort: { fields: frontmatter___date, order: DESC }
       limit: 2
-      filter: { frontmatter: { published: { eq: true } } }
+      filter: {
+        fields: { contentType: { eq: "posts" } }
+        frontmatter: { published: { eq: true } }
+      }
     ) {
       edges {
         node {
