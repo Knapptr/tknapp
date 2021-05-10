@@ -44,7 +44,9 @@ const ProjectShort = ({ project }: Props) => {
           <LinkButton href={project.example} target="_blank">
             Example
           </LinkButton>
+
           <LinkButton as={Link} to={project.slug}>
+            {/* This shows as an error, but is not an issue */}
             Write-up
           </LinkButton>
         </div>
