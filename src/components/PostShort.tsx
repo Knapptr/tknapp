@@ -8,7 +8,16 @@ import React from "react"
 import tw from "twin.macro"
 import "twin.macro"
 
-import { Container, Header, Text, ColContainer, NavLink } from "./styled"
+import {
+  Container,
+  Header,
+  Text,
+  ColContainer,
+  NavLink,
+  ShortContainer,
+  ContainerBelowStripe,
+  TagBadge,
+} from "./styled"
 
 const PostShort = ({
   title,
@@ -29,11 +38,12 @@ const PostShort = ({
 }) => {
   const procImage = getImage(image)
   return (
-    <div tw="bg-secondary-fill pt-5 h-full rounded-xl">
+    <ShortContainer>
       <TypeStripe type={type} tw="py-0.5 px-4 font-tmono mb-2">
         {type ? type.toLowerCase() : "other"}
       </TypeStripe>
-      <Container tw="pt-1 pb-3 flex-grow h-full">
+      {/* <Container tw="pt-1 pb-3 flex-grow h-full"> */}
+      <ContainerBelowStripe>
         <ColContainer tw="flex-nowrap">
           <div tw=" w-3/4 md:w-1/2 order-2 sm:order-none text-center mx-auto sm:text-left">
             <h6 tw="font-light font-tmono text-tertiary-fg">
@@ -57,16 +67,20 @@ const PostShort = ({
             <div tw="absolute bottom-4  gap-1 right-2 flex  flex-wrap-reverse content-end items-end justify-end">
               {tags.map(tag =>
                 tag !== "none" ? (
-                  <h6 tw="bg-primary-fill rounded-2xl py-1 px-4 border border-secondary-fg cursor-pointer opacity-75 ">
-                    {tag}
-                  </h6>
-                ) : null
+                  // <h6 tw="bg-primary-fill rounded-2xl py-1 px-4 border border-secondary-fg cursor-pointer opacity-75 ">
+
+                  <Link to={`/tags/${tag}`}>
+                    <TagBadge tw="opacity-80">{tag}</TagBadge>
+                  </Link>
+                ) : // </h6>
+                null
               )}
             </div>
           </div>
         </ColContainer>
-      </Container>
-    </div>
+      </ContainerBelowStripe>
+      {/* </Container> */}
+    </ShortContainer>
   )
 }
 

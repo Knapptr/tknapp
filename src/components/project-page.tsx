@@ -3,6 +3,7 @@ import { graphql } from "gatsby"
 import ContentLayout from "./ContentLayout"
 import { NavLink } from "./styled"
 import { Helmet } from "react-helmet"
+import "twin.macro"
 
 const ProjectPage = ({ data: { mdx } }: IQueryData) => {
   const project = {
@@ -23,7 +24,9 @@ const ProjectPage = ({ data: { mdx } }: IQueryData) => {
         <meta name="description" content={project.description} />
       </Helmet>
       <ContentLayout content={project}>
-        <NavLink to="/projects">Back to Projects</NavLink>
+        <NavLink tw="mx-auto mt-6" to="/projects">
+          Back to Projects
+        </NavLink>
       </ContentLayout>
     </>
   )

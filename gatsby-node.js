@@ -30,6 +30,8 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
 exports.createPages = async ({ graphql, actions, reporter }) => {
   const { createPage } = actions
 
+  ////////////////////////Would it be better to narrow this all down into one query??
+
   const result = await graphql(
     `
       query {
@@ -45,6 +47,9 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
               fields {
                 slug
               }
+              frontmatter {
+                tags
+              }
             }
           }
         }
@@ -55,6 +60,8 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   if (result.errors) {
     reporter.panicOnBuild("error Loading create pages")
   }
+
+  ////////// POSTS
 
   const posts = result.data.allMdx.edges
 
@@ -75,6 +82,9 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
             fields {
               slug
             }
+            frontmatter {
+              tags
+            }
           }
         }
       }
@@ -83,12 +93,36 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   if (projectResult.errors) {
     reporter.panicOnBuild("error getting projects")
   }
+
+  ////////// PROJECTS
+
   const projects = projectResult.data.allMdx.edges
   projects.forEach(({ node }, index) => {
     createPage({
       path: node.fields.slug,
       component: path.resolve(`./src/components/project-page.tsx`),
       context: { id: node.id },
+    })
+  })
+
+  ///// TAGS
+
+  // create set of all tags
+  let allTags = []
+  posts.forEach(post => {
+    allTags = allTags.concat(post.node.frontmatter.tags)
+  })
+  projects.forEach(project => {
+    allTags = allTags.concat(project.node.frontmatter.tags)
+  })
+
+  const uniqueTags = new Set(allTags)
+
+  uniqueTags.forEach((tag, index) => {
+    createPage({
+      path: `/tags/${tag.toLowerCase()}`,
+      component: path.resolve(`./src/components/tag-page.tsx`),
+      context: { tag: tag },
     })
   })
 }

@@ -28,8 +28,7 @@ const AboutPage = () => {
       <Layout>
         <ContentBounds>
           <Container tw="py-6 bg-secondary-fill">
-            <Header>About Me</Header>
-            <DivideHR />
+            <Header tw="mb-8 text-center md:text-left">About Me</Header>
             <div tw="flex  flex-col md:flex-row  md:items-start lg:items-center  gap-10 ">
               <div tw="order-2 md:order-none">
                 <Text>

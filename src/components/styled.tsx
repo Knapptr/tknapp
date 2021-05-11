@@ -2,7 +2,7 @@ import { Link } from "gatsby"
 import tw, { styled } from "twin.macro"
 
 export const ContentBounds = styled.div`
-  ${tw`w-full max-w-4xl sm:w-5/6 mx-auto flex flex-col content-center`}
+  ${tw`w-11/12 max-w-4xl sm:w-5/6 mx-auto flex flex-col content-center`}
 `
 export const Container = styled.div`
   ${tw`  px-3 sm:px-7 rounded-lg  `}
@@ -14,7 +14,7 @@ export const TagBadgeInset = styled.h6`
   ${tw`bg-secondary-fill rounded-2xl py-1 px-4 border border-secondary-fg cursor-pointer opacity-75 `}
 `
 export const TagBadge = styled.div`
-  ${tw`font-tmono text-xs shadow rounded-xl px-2 py-1 bg-secondary-fill`}
+  ${tw`hover:(shadow-xl filter opacity-100 brightness-105) font-tmono text-xs shadow rounded-xl px-2 py-1 bg-secondary-fill transition-all cursor-pointer`}
 `
 
 export const Header = styled.h2`
@@ -73,4 +73,10 @@ export const NavList = styled.ul`
 `
 export const Nav = styled.nav`
   ${tw`flex items-center px-6 pt-4 pb-2  font-tmono w-full mx-auto sm:items-baseline gap-4 max-w-5xl  `}
+`
+export const ShortContainer = styled.div`
+  ${tw`flex flex-col cursor-default bg-tertiary-fill py-4 h-full rounded brightness-95 `}
+`
+export const ContainerBelowStripe = styled.div`
+  ${tw`px-4 h-full flex flex-col justify-center`}
 `

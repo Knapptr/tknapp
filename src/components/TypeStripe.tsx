@@ -14,6 +14,8 @@ const TypeStripe = styled.div<StripeProps>`
         return tw`bg-other`
       case "project":
         return tw`bg-project`
+      case "post":
+        return tw`bg-other`
       default:
         return tw`bg-other`
     }

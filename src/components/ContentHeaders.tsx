@@ -4,10 +4,11 @@ import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import React from "react"
 import "twin.macro"
 import tw from "twin.macro"
-import { Button, Header, LinkButton } from "./styled"
+import { Button, Header, LinkButton, TagBadge } from "./styled"
 import Layout from "./layout"
 import TypeStripe from "./TypeStripe"
 import { Container, ContentBounds } from "./styled"
+import { Link } from "gatsby"
 
 interface Props {
   data: {
@@ -37,9 +38,9 @@ const ContentHeaders = ({
 
           <div tw="flex gap-1 mb-2">
             {tags.map(tag => (
-              <div tw="font-tmono text-xs shadow rounded-xl px-2 py-1 bg-tertiary-fill">
-                <h6>{tag}</h6>
-              </div>
+              <Link tw="mb-2" to={`/tags/${tag}`}>
+                <TagBadge>{tag}</TagBadge>
+              </Link>
             ))}
           </div>
           <div tw="flex gap-3 flex-wrap">

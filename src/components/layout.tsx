@@ -36,7 +36,7 @@ const Layout = ({ children }: { children: JSX.Element | JSX.Element[] }) => {
       <div tw="flex flex-col min-h-screen">
         <GlobalStyles />
         <NavBar />
-        <main tw="flex-grow">{children}</main>
+        <main tw="mt-6 flex-grow">{children}</main>
         <Footer tw="flex-shrink-0" />
       </div>
     </>

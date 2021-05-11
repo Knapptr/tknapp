@@ -24,6 +24,7 @@ import {
   ColContainer,
   Button,
   SubHeader,
+  NavLink,
 } from "../components/styled"
 import { FileNode } from "gatsby-plugin-image/dist/src/components/hooks"
 import PostShort from "../components/PostShort"
@@ -110,9 +111,13 @@ const IndexPage = ({ data }: PageProps<IPageQueryData>) => {
           <header tw="bg-primary-fill py-1 m-2">
             <SubHeader tw="text-center text-base">Most recent posts:</SubHeader>
           </header>
-          <ul tw="flex flex-col lg:flex-row justify-center gap-6">
+          <ul tw="flex flex-col lg:flex-row justify-center gap-6 my-6">
             {renderTwoMostRecent(data.allMdx.edges)}
           </ul>
+
+          <NavLink to="/posts" tw="text-center block">
+            view all posts
+          </NavLink>
         </section>
       </Layout>
     </>

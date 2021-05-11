@@ -48,7 +48,7 @@ const StyledTypeButton = styled(TypeButton)`
 
 const TypeFilter = ({ filter }: FilterProps) => {
   const [currentPostType, setCurrentPostType] = useState("all")
-  const handleTypeChange = (type: string) => {
+  const handleTypeChange = (type: PostTypes) => {
     setCurrentPostType(type)
     filter(type)
   }
@@ -58,7 +58,7 @@ const TypeFilter = ({ filter }: FilterProps) => {
     filter("all")
   }
   return (
-    <ul tw="flex gap-1 justify-center mt-1">
+    <ul tw="flex gap-1 justify-center mt-1 flex-wrap">
       <li>
         {" "}
         <StyledTypeButton

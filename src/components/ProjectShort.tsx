@@ -2,7 +2,13 @@ import { graphql, Link } from "gatsby"
 import React from "react"
 import tw, { styled } from "twin.macro"
 import "twin.macro"
-import { LinkButton, TagBadge, Text } from "./styled"
+import {
+  ContainerBelowStripe,
+  LinkButton,
+  ShortContainer,
+  TagBadge,
+  Text,
+} from "./styled"
 import TypeStripe from "./TypeStripe"
 
 interface Props {
@@ -16,11 +22,15 @@ interface Props {
     code: string
   }
 }
+
+const StyledProjectLink = styled(LinkButton)`
+  ${tw`hover:shadow-xl transition-all`}
+`
 const ProjectShort = ({ project }: Props) => {
   return (
-    <div tw="flex flex-col cursor-default bg-tertiary-fill py-4 h-full rounded hover:(filter brightness-100 shadow-2xl) brightness-95 transition-all duration-300 ">
+    <ShortContainer>
       <TypeStripe type="project">project</TypeStripe>
-      <div tw="px-4 h-full flex flex-col justify-center">
+      <ContainerBelowStripe>
         <header tw="">
           <div tw="flex items-baseline gap-2 ">
             <span tw="text-2xl lg:text-4xl">{project.emoji}</span>
@@ -28,9 +38,11 @@ const ProjectShort = ({ project }: Props) => {
           </div>
           <div tw="flex flex-wrap-reverse my-1 gap-1">
             {project.tags.map(tag => (
-              <TagBadge>
-                <h6 tw="text-sm">{tag}</h6>
-              </TagBadge>
+              <Link to={`/tags/${tag}`}>
+                <TagBadge>
+                  <h6 tw="text-sm">{tag}</h6>
+                </TagBadge>
+              </Link>
             ))}
           </div>
         </header>
@@ -38,20 +50,20 @@ const ProjectShort = ({ project }: Props) => {
           <Text>{project.description}</Text>
         </div>
         <div tw="mt-auto flex justify-center sm:justify-start md:justify-center md:mx-0 gap-1 flex-wrap">
-          <LinkButton href={project.code} target="_blank">
+          <StyledProjectLink href={project.code} target="_blank">
             Code
-          </LinkButton>
-          <LinkButton href={project.example} target="_blank">
+          </StyledProjectLink>
+          <StyledProjectLink href={project.example} target="_blank">
             Example
-          </LinkButton>
+          </StyledProjectLink>
 
-          <LinkButton as={Link} to={project.slug}>
+          <StyledProjectLink as={Link} to={project.slug}>
             {/* This shows as an error, but is not an issue */}
             Write-up
-          </LinkButton>
+          </StyledProjectLink>
         </div>
-      </div>
-    </div>
+      </ContainerBelowStripe>
+    </ShortContainer>
   )
 }
 
