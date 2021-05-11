@@ -8,21 +8,32 @@ import {
   ContentBounds,
 } from "../components/styled"
 import "twin.macro"
+import React from "react"
+import { Helmet } from "react-helmet"
 
 const ContactPage = () => {
   return (
-    <Layout>
-      <ContentBounds>
-        <Container>
-          <Header>Contact Me</Header>
-          <DivideHR />
-          <div tw="flex gap-8 ">
-            <ExtNavLink>Github</ExtNavLink>
-            <ExtNavLink>Email</ExtNavLink>
-          </div>
-        </Container>
-      </ContentBounds>
-    </Layout>
+    <>
+      <Helmet>
+        <title>Contact-Tknapp</title>
+        <meta
+          name="description"
+          content="The personal webpage of Tyler Knapp"
+        />
+      </Helmet>
+      <Layout>
+        <ContentBounds>
+          <Container>
+            <Header>Contact Me</Header>
+            <DivideHR />
+            <div tw="flex gap-8 ">
+              <ExtNavLink>Github</ExtNavLink>
+              <ExtNavLink>Email</ExtNavLink>
+            </div>
+          </Container>
+        </ContentBounds>
+      </Layout>
+    </>
   )
 }
 

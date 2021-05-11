@@ -53,14 +53,13 @@ module.exports = {
     // {
     //   resolve: `gatsby-plugin-manifest`,
     //   options: {
-    //     name: `tknapp.net`,
-    //     short_name: `tknapp`,
+    //     name: `tknapp`,
+    //     short_name: `tk`,
     //     start_url: `/`,
     //     background_color: `#663399`,
     //     theme_color: `#663399`,
     //     display: `minimal-ui`,
-    //     // Add an icon for phone use!
-    //     // icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
+    //     // icon: `src/images/hangloose.svg`, // This path is relative to the root of the site.
     //   },
     // },
     `gatsby-plugin-gatsby-cloud`,

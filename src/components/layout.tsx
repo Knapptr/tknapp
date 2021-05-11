@@ -15,6 +15,7 @@ import NavBar from "./NavBar"
 import Footer from "./Footer"
 import "twin.macro"
 import { Helmet } from "react-helmet"
+import favicon from "../images/favicon.ico"
 
 const Layout = ({ children }: { children: JSX.Element | JSX.Element[] }) => {
   const data = useStaticQuery(graphql`
@@ -29,6 +30,9 @@ const Layout = ({ children }: { children: JSX.Element | JSX.Element[] }) => {
 
   return (
     <>
+      <Helmet>
+        <link rel="shortcut icon" href={favicon} type="image/x-icon" />
+      </Helmet>
       <div tw="flex flex-col min-h-screen">
         <GlobalStyles />
         <NavBar />
