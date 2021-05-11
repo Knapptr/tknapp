@@ -25,9 +25,11 @@ import {
   Button,
   SubHeader,
   NavLink,
+  HomeSection,
 } from "../components/styled"
 import { FileNode } from "gatsby-plugin-image/dist/src/components/hooks"
 import PostShort from "../components/PostShort"
+import ProjectShort from "../components/ProjectShort"
 
 const Wave = keyframes`
     0%{
@@ -70,6 +72,21 @@ const renderTwoMostRecent = (posts: IPostData[]) => {
     </li>
   ))
 }
+const renderProject = (project: IProjectData) => (
+  <Link to={project.node.fields.slug}>
+    <ProjectShort
+      project={{
+        title: project.node.frontmatter.title,
+        code: project.node.frontmatter.code,
+        slug: project.node.fields.slug,
+        emoji: project.node.frontmatter.emoji,
+        example: project.node.frontmatter.example,
+        tags: project.node.frontmatter.tags,
+        description: project.node.frontmatter.description,
+      }}
+    />
+  </Link>
+)
 
 const IndexPage = ({ data }: PageProps<IPageQueryData>) => {
   return (
@@ -103,22 +120,73 @@ const IndexPage = ({ data }: PageProps<IPageQueryData>) => {
             <h4 tw="mt-6 text-center md:text-left text-primary-fg font-bold text-3xl sm:text-4xl md:text-5xl">
               Welcome to my internet thing.
             </h4>
-            <ColContainer></ColContainer>
           </ContentBounds>
         </Container>
-        {/* The recent posts div gets a slightly larger max width */}
-        <section tw="mt-12 max-w-6xl mx-auto  px-5 rounded-lg py-4">
-          <header tw="bg-primary-fill py-1 m-2">
+        <HomeSection>
+          <header tw=" py-1 m-2">
             <SubHeader tw="text-center text-base">Most recent posts:</SubHeader>
           </header>
-          <ul tw="flex flex-col lg:flex-row justify-center gap-6 my-6">
-            {renderTwoMostRecent(data.allMdx.edges)}
+          <ul tw="flex flex-col lg:flex-row justify-center gap-6 my-24">
+            {renderTwoMostRecent(data.posts.edges)}
           </ul>
 
-          <NavLink to="/posts" tw="text-center block">
+          <NavLink to="/posts" tw="hover:underline text-center block">
             view all posts
           </NavLink>
-        </section>
+        </HomeSection>
+
+        <HomeSection>
+          <header tw=" py-1 m-2">
+            <SubHeader tw="text-center text-base">
+              Most Recent Project
+            </SubHeader>
+          </header>
+          <div tw="mx-auto max-w-md my-24">
+            {renderProject(data.project.edges[0])}
+          </div>
+
+          <NavLink to="/projects" tw="hover:underline text-center block">
+            view all projects
+          </NavLink>
+        </HomeSection>
+
+        <HomeSection>
+          <header tw=" py-1 m-2">
+            <SubHeader tw="text-center text-base">
+              Want to get in touch?
+            </SubHeader>
+          </header>
+          <div tw="flex flex-col items-center text-center my-12 gap-12 font-tsans text-lg max-w-prose mx-auto">
+            <p>
+              I'm open to new developoment opportunties!
+              <br /> Just looking to chat about code, synthesizers, or to argue
+              over the best episode of <em>TNG</em>? I'd love to hear from you.
+              <p tw="text-xs">
+                (The best episode of TNG is <em>Who Watches the Watchers</em>{" "}
+                tied with <em>Darmok</em>
+                .)
+              </p>
+            </p>
+            <div tw="">
+              <p>
+                Shoot me an email at{" "}
+                <a
+                  href="mailto:knapptr@gmail.com"
+                  tw="font-bold hover:underline"
+                >
+                  knapptr@gmail.com
+                </a>
+                <br />
+                or{" "}
+                <Link tw="font-bold hover:underline" to="/contact">
+                  learn about more ways to say hello.
+                </Link>
+                <br />
+                lets work together.
+              </p>
+            </div>
+          </div>
+        </HomeSection>
       </Layout>
     </>
   )
@@ -139,15 +207,33 @@ interface IPostData {
     }
   }
 }
+interface IProjectData {
+  node: {
+    fields: {
+      slug: string
+    }
+    frontmatter: {
+      title: string
+      description: string
+      emoji: string
+      tags: string[]
+      code: string
+      example: string
+    }
+  }
+}
 interface IPageQueryData {
-  allMdx: {
+  posts: {
     edges: IPostData[]
+  }
+  project: {
+    edges: IProjectData[]
   }
 }
 
 export const pageQuery = graphql`
   query {
-    allMdx(
+    posts: allMdx(
       sort: { fields: frontmatter___date, order: DESC }
       limit: 2
       filter: {
@@ -171,6 +257,26 @@ export const pageQuery = graphql`
             title
             tags
             type
+          }
+        }
+      }
+    }
+    project: allMdx(
+      limit: 1
+      filter: { fields: { contentType: { eq: "projects" } } }
+    ) {
+      edges {
+        node {
+          fields {
+            slug
+          }
+          frontmatter {
+            emoji
+            description
+            title
+            tags
+            code
+            example
           }
         }
       }

@@ -25,15 +25,7 @@ const ContactPage = () => {
             <Header tw="text-center md:text-left mb-8">Contact Me</Header>
             <div tw="flex justify-around gap-8 max-w-4xl mx-auto flex-col md:flex-row items-center">
               <div tw="max-w-md">
-                <Text>
-                  I'm open to new developoment opportunties!
-                  <br /> Just looking to chat about code, synthesizers, or to
-                  argue over the best episode of <em>TNG</em>?{" "}
-                  <span tw="text-xs">
-                    (It's <em>Who Watches the Watchers</em> tied with{" "}
-                    <em>Darmok</em>.)
-                  </span>
-                </Text>
+                <Text>I'm open to new developoment opportunties!</Text>
                 <Text>I'd love to hear from you. Reach out!</Text>
               </div>
               <ul tw="font-tmono flex gap-3 md:gap-8 flex-row flex-wrap justify-center md:flex-col   ">

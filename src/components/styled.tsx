@@ -80,3 +80,7 @@ export const ShortContainer = styled.div`
 export const ContainerBelowStripe = styled.div`
   ${tw`px-4 h-full flex flex-col justify-center`}
 `
+
+export const HomeSection = styled.section`
+  ${tw`bg-tertiary-fill mx-auto  px-5 rounded-lg py-4 my-12 sm:my-24 lg:my-48 xl:my-64`}
+`
