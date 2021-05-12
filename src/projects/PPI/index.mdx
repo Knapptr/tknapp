@@ -1,0 +1,30 @@
+---
+title: "Python Project Initiator"
+emoji: 🐍
+description: "CLI/Script for Initializing a Python Project."
+tags: [python, script, pip, venv]
+code: https://github.com/knapptr/ppi
+published: true
+date: 2021-03-16
+---
+
+While learning python, I thought it would be helpful to have a script to set up a project and a venv to run in. It proved quite handy. I wrote some (questionable) install scripts for bash to add `ppi` to the system `PATH`. As well.
+
+Just excuse the hideous terminal here:
+
+![ppi example](./images/ppi.gif)
+
+### usage: ppi [-h] directory
+
+Initialize a Python Project. Creates a venv, git, .gitignore, .dotenv. Installs python-
+dotenv with pip. Creates a template .py file with logging imported, and set up to DEBUG.
+
+positional arguments:
+directory
+
+optional arguments:
+-h, --help show this help message and exit
+
+### Notes:
+
+- the install and uninstall scripts are pretty janky. There is probably a better, safer way to do this. For my use, its fine.

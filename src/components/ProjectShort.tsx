@@ -34,7 +34,9 @@ const ProjectShort = ({ project }: Props) => {
         <header tw="">
           <div tw="flex items-baseline gap-2 ">
             <span tw="text-2xl lg:text-4xl">{project.emoji}</span>
-            <h3 tw="text-lg font-bold font-tmono">{project.title}</h3>
+            <Link tw="hover:underline" to={project.slug}>
+              <h2 tw="text-lg font-bold font-tmono">{project.title}</h2>
+            </Link>
           </div>
           <div tw="flex flex-wrap-reverse my-1 gap-1">
             {project.tags.map(tag => (
@@ -53,9 +55,11 @@ const ProjectShort = ({ project }: Props) => {
           <StyledProjectLink href={project.code} target="_blank">
             Code
           </StyledProjectLink>
-          <StyledProjectLink href={project.example} target="_blank">
-            Example
-          </StyledProjectLink>
+          {project.example && (
+            <StyledProjectLink href={project.example} target="_blank">
+              Example
+            </StyledProjectLink>
+          )}
 
           <StyledProjectLink as={Link} to={project.slug}>
             {/* This shows as an error, but is not an issue */}

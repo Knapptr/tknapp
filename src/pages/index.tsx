@@ -262,8 +262,12 @@ export const pageQuery = graphql`
       }
     }
     project: allMdx(
+      sort: { fields: frontmatter___date, order: DESC }
       limit: 1
-      filter: { fields: { contentType: { eq: "projects" } } }
+      filter: {
+        fields: { contentType: { eq: "projects" } }
+        frontmatter: { published: { eq: true } }
+      }
     ) {
       edges {
         node {

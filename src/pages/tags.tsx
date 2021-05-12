@@ -98,7 +98,7 @@ interface IQueryData {
 }
 export const pageQuery = graphql`
   query tagsPageQuery {
-    allMdx {
+    allMdx(filter: { frontmatter: { published: { eq: true } } }) {
       distinct(field: frontmatter___tags)
       edges {
         node {

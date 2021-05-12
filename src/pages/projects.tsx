@@ -68,7 +68,12 @@ interface IQuery {
 
 export const pageQuery = graphql`
   query projects {
-    allMdx(filter: { fields: { contentType: { eq: "projects" } } }) {
+    allMdx(
+      filter: {
+        fields: { contentType: { eq: "projects" } }
+        frontmatter: { published: { eq: true } }
+      }
+    ) {
       edges {
         node {
           fields {
