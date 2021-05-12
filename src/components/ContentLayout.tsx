@@ -31,7 +31,7 @@ const ContentLayout = ({
   return (
     <Layout>
       <ContentBounds>
-        <div tw="bg-secondary-fill rounded-lg py-6">
+        <div tw="bg-secondary-fill rounded-lg py-6 px-3">
           <ContentHeaders data={content} />
           <Stylesheet>
             <MDXProvider components={shortcodes}>
