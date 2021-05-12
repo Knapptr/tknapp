@@ -1,13 +1,8 @@
 import * as React from "react"
-import { useContext } from "react"
-import { useState } from "react"
 import { graphql, Link, PageProps } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
 import tw, { styled, theme } from "twin.macro"
 import { keyframes } from "@emotion/react"
-import Sub from "../components/subel"
-import TestTwo from "../components/test2"
-import TestThree from "../components/test3"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 import { Helmet } from "react-helmet"
@@ -122,18 +117,6 @@ const IndexPage = ({ data }: PageProps<IPageQueryData>) => {
             </h4>
           </ContentBounds>
         </Container>
-        <HomeSection>
-          <header tw=" py-1 m-2">
-            <SubHeader tw="text-center text-base">Most recent posts:</SubHeader>
-          </header>
-          <ul tw="flex flex-col lg:flex-row justify-center gap-6 my-24">
-            {renderTwoMostRecent(data.posts.edges)}
-          </ul>
-
-          <NavLink to="/posts" tw="hover:underline text-center block">
-            view all posts
-          </NavLink>
-        </HomeSection>
 
         <HomeSection>
           <header tw=" py-1 m-2">
@@ -147,6 +130,18 @@ const IndexPage = ({ data }: PageProps<IPageQueryData>) => {
 
           <NavLink to="/projects" tw="hover:underline text-center block">
             view all projects
+          </NavLink>
+        </HomeSection>
+        <HomeSection>
+          <header tw=" py-1 m-2">
+            <SubHeader tw="text-center text-base">Most recent posts:</SubHeader>
+          </header>
+          <ul tw="flex flex-col lg:flex-row justify-center gap-6 my-24">
+            {renderTwoMostRecent(data.posts.edges)}
+          </ul>
+
+          <NavLink to="/posts" tw="hover:underline text-center block">
+            view all posts
           </NavLink>
         </HomeSection>
 
