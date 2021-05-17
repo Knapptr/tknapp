@@ -85,7 +85,18 @@ const PostsPage = ({ data }: PageProps<QueryPosts>) => {
       </Helmet>
       <header tw="py-3 px-6 bg-tertiary-fill mb-8 rounded-lg">
         <Header tw="mx-auto text-center">Posts</Header>
-        <TypeFilter filter={filterPostsByType} />
+        <div tw="flex justify-center gap-6 flex-wrap">
+          <div>
+            <h2>Filter by post type:</h2>
+            <TypeFilter filter={filterPostsByType} />
+          </div>
+          <div tw="flex flex-col justify-center items-center">
+            <h2>or:</h2>
+            <Link tw="font-tmono font-bold hover:text-secondary-fg " to="/tags">
+              Sort by tags
+            </Link>
+          </div>
+        </div>
       </header>
       <ContentBounds tw="">
         <div tw="flex flex-col items-center flex-initial justify-center">
