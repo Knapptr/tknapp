@@ -8,11 +8,11 @@ const baseStyles = css`
   }
   .light {
     --color-primary: #242424;
-    --bg-color-primary: #e0dede;
+    --bg-color-primary: #e7e7e7;
     --color-secondary: #797979;
-    --bg-color-secondary: #d1d1d1;
+    --bg-color-secondary: #dddddd;
     --color-tertiary: #5a5a5a;
-    --bg-color-tertiary: #cecece;
+    --bg-color-tertiary: #d3d3d3;
     --color-other: #d3869b;
     --color-music: #8ec07c;
     --color-all: #98971a;

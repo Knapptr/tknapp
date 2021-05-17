@@ -51,7 +51,7 @@ const renderTwoMostRecent = (posts: IPostData[]) => {
   return posts.map(post => (
     <li
       key={post.node.frontmatter.title}
-      tw="flex-1 hover:shadow-2xl filter brightness-95 hover:(brightness-100) transition-all duration-300 cursor-pointer"
+      tw="flex-1 hover:shadow-2xl hover:(brightness-100) transition-all duration-300 cursor-pointer"
     >
       <Link to={post.node.fields.slug}>
         <PostShort
@@ -68,19 +68,17 @@ const renderTwoMostRecent = (posts: IPostData[]) => {
   ))
 }
 const renderProject = (project: IProjectData) => (
-  <Link to={project.node.fields.slug}>
-    <ProjectShort
-      project={{
-        title: project.node.frontmatter.title,
-        code: project.node.frontmatter.code,
-        slug: project.node.fields.slug,
-        emoji: project.node.frontmatter.emoji,
-        example: project.node.frontmatter.example,
-        tags: project.node.frontmatter.tags,
-        description: project.node.frontmatter.description,
-      }}
-    />
-  </Link>
+  <ProjectShort
+    project={{
+      title: project.node.frontmatter.title,
+      code: project.node.frontmatter.code,
+      slug: project.node.fields.slug,
+      emoji: project.node.frontmatter.emoji,
+      example: project.node.frontmatter.example,
+      tags: project.node.frontmatter.tags,
+      description: project.node.frontmatter.description,
+    }}
+  />
 )
 
 const IndexPage = ({ data }: PageProps<IPageQueryData>) => {

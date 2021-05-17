@@ -75,7 +75,7 @@ export const Nav = styled.nav`
   ${tw`flex items-center px-6 pt-4 pb-2  font-tmono w-full mx-auto sm:items-baseline gap-4 max-w-5xl  `}
 `
 export const ShortContainer = styled.div`
-  ${tw`flex flex-col cursor-default bg-tertiary-fill py-4 h-full rounded brightness-95 `}
+  ${tw`flex flex-col cursor-default bg-secondary-fill py-4 h-full rounded  `}
 `
 export const ContainerBelowStripe = styled.div`
   ${tw`px-4 h-full flex flex-col justify-center`}

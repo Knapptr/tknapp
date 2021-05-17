@@ -92,7 +92,7 @@ const PostsPage = ({ data }: PageProps<QueryPosts>) => {
           <ul tw="flex flex-col gap-4 ">
             {currentPosts.map(post => {
               return (
-                <li tw="hover:shadow-2xl filter brightness-95 transition-all duration-300">
+                <li tw="hover:shadow-2xl hover:brightness-100 filter brightness-95 transition-all duration-300">
                   <PostShort
                     title={post.title}
                     date={post.date}
