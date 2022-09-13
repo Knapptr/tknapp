@@ -1,5 +1,5 @@
 module.exports = {
-  pathPrefix: "/tknapp",
+  // pathPrefix: "/tknapp",
  
   siteMetadata: {
     title: `tKnapp`,
