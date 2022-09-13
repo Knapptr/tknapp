@@ -1,5 +1,6 @@
 module.exports = {
-  pathPrefix: "/tknapp",
+  // pathPrefix: "/tknapp",
+ 
   siteMetadata: {
     title: `tKnapp`,
     description: `Tyler Knapp's home on the internet. Code, music, ramblings.`,
