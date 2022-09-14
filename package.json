@@ -70,7 +70,7 @@
     "start": "npm run develop",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
-    "deploy": "gatsby clean && gatsby build && echo tknapp.net > ./build/CNAME && gh-pages -d public",
+    "deploy": "gatsby clean && gatsby build && echo tknapp.net > ./CNAME && gh-pages -d public",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
   },
   "repository": {
